@@ -11,7 +11,7 @@ from micropython import const
 
 i2c.init()
 
-class I2CBase:    
+class GroveI2CBase:    
     def __init__(self, device_address = 0x0):
         self._device_address = device_address
         self._device_id = 0x0
