@@ -6,37 +6,19 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import *
+from microbit import pin0, sleep
 
 class GroveLED:
-    """
-    This class supports the Grove LED.
-    https://wiki.seeedstudio.com/Grove-LED_Socket_Kit
-    """
     def __init__(self, pin):
-        """
-        Initializes an instance of the class with the pin that the LED has been connected
-        """
         self._pin = pin
         
-    def on(self)
-        """
-        Turns on the LED
-        """
+    def on(self):
         self._pin.write_digital(1)
     
     def off(self):
-        """
-        Turns off the LED
-        """
         self._pin.write_digital(0)
-        
-def main():
-    """
-    Demo for the class with the LED connected to pin 0
-    """
-    display.clear()
 
+def demo():
     led = GroveLED(pin0)
     led.off()
 
@@ -45,6 +27,6 @@ def main():
         sleep(1000)
         led.off()
         sleep(1000)
-    
+        
 if __name__ == '__main__':
-    main()
+    demo()
