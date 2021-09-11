@@ -1,10 +1,11 @@
 from microbit import *
  
-start = 0x07
+start = 0x00
 end = 0x70
  
 while True:
     display.show(Image.ARROW_W)
+    
     if button_a.was_pressed():
         display.show(Image.SMILE)
         print("Scanning I2C bus...")
@@ -16,5 +17,10 @@ while True:
             else:
                 print("Found:  [%s]" % hex(i))
         print("Scanning complete")
+        sleep(2000)
+        
+    if button_b.was_pressed():
+        break
+    
     sleep(10)
      
