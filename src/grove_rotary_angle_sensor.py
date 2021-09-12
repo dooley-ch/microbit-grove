@@ -6,22 +6,20 @@
 #
 # ------------------------------------------------------------------------------------------
 
+# Note:  This component requires an analog input, so the only valid pins are 0, 1, 2
+
 from microbit import pin0, sleep, button_b, display
 
-class GroveLED:
+class GroveRotaryAngleSensor:
     def __init__(self, pin):
         self._pin = pin
         
-    def on(self):
-        self._pin.write_digital(1)
-    
-    def off(self):
-        self._pin.write_digital(0)
+    def value(self):
+        return self._pin.read_analog()
 
 def demo():
-    led = GroveLED(pin0)
-    led.off()
-
+    meter = GroveRotaryAngleSensor(pin0)
+    
     display.clear()
     display.show('>')
     
@@ -29,10 +27,8 @@ def demo():
         if button_b.was_pressed():
             break
         
-        led.on()
-        sleep(1000)
-        led.off()
-        sleep(1000)
+        print("Reading: {}".format(str(meter.value())))
+        sleep(2000)
         
 if __name__ == '__main__':
     demo()

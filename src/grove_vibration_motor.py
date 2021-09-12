@@ -6,21 +6,23 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin0, sleep, button_b, display
+_HIGH = 1
+_LOW  = 0
 
-class GroveLED:
+from microbit import pin16, sleep, button_b, display
+
+class GroveVibrationMotor:
     def __init__(self, pin):
         self._pin = pin
         
     def on(self):
-        self._pin.write_digital(1)
-    
-    def off(self):
-        self._pin.write_digital(0)
+        self._pin.write_digital(_HIGH)
 
+    def off(self):
+        self._pin.write_digital(_LOW)
+        
 def demo():
-    led = GroveLED(pin0)
-    led.off()
+    motor = GroveVibrationMotor(pin16)
 
     display.clear()
     display.show('>')
@@ -29,10 +31,10 @@ def demo():
         if button_b.was_pressed():
             break
         
-        led.on()
-        sleep(1000)
-        led.off()
-        sleep(1000)
+        motor.on()
+        sleep(5000)
+        motor.off()
+        sleep(2000)
         
 if __name__ == '__main__':
     demo()

@@ -6,33 +6,34 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin0, sleep, button_b, display
+# This sensor requires analog input, so use P0, P1, P2
 
-class GroveLED:
+from microbit import pin0, sleep, display, button_b
+
+class GroveSoundSensor:
     def __init__(self, pin):
         self._pin = pin
+            
+    def reading(self):
+        value = 0
         
-    def on(self):
-        self._pin.write_digital(1)
+        for i in range(32):
+            value += self._pin.read_analog()
+            
+        return (value >> 5)
     
-    def off(self):
-        self._pin.write_digital(0)
-
 def demo():
-    led = GroveLED(pin0)
-    led.off()
-
+    sensor = GroveSoundSensor(pin0)
+    
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
-            break
+            break;
         
-        led.on()
-        sleep(1000)
-        led.off()
-        sleep(1000)
-        
+        print('Sound Reading:', sensor.reading())
+        sleep(500)
+
 if __name__ == '__main__':
     demo()
