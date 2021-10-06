@@ -6,8 +6,7 @@
 #
 # ------------------------------------------------------------------------------------------
 
-# Displaying characters on a segment can be problematic, check how they will luck before using
-# them
+# Displaying characters on a segment can be problematic, check how they will luck before using them
 
 from microbit import *
 from utime import sleep_us

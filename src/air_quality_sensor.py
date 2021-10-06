@@ -46,7 +46,7 @@ class GroveAirQualitySensor:
             raise ValueError('Initial sensor reading out of range')
         
     def _updateStandardVoltage(self):
-        if ticks_diff(ticks_ms(), self._last_std_vol_updated) < 500000:
+        if ticks_diff(ticks_ms(), self._last_std_vol_updated) > 500000:
             self._standard_voltage = self._voltage_sum / self._vol_sum_count;
             self._last_std_vol_updated = ticks_ms();
 
