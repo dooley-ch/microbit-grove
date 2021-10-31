@@ -2,7 +2,9 @@ from microbit import *
  
 start = 0x00
 end = 0x70
- 
+
+i2c.init()
+
 while True:
     display.show(Image.ARROW_W)
     
