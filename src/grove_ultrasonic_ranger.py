@@ -6,7 +6,9 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin8, sleep
+from microbit import pin1, sleep
+from machine import time_pulse_us
+
 from utime import sleep_us, ticks_us, ticks_diff
 
 _HIGH     = 1
@@ -48,33 +50,11 @@ class GroveUltrasonicRanger:
         self._pin.write_digital(_LOW)
         
         begin = ticks_us()
-        
-        # Wait for previous pulse to end
-        while self._pin.read_digital():
-            if (ticks_diff(ticks_us(), begin) >= _TIME_OUT):
-                return 0
-            
-        # Wait for pulse to start
-        while not self._pin.read_digital():
-            if (ticks_diff(ticks_us(), begin) >= _TIME_OUT):
-                return 0
-                
-        pulse_begin = ticks_us()
-
-        # Wait for pulse to stop
-        while self._pin.read_digital():
-            if (ticks_diff(begin, ticks_us()) >= _TIME_OUT):
-                return 0
-            
-        pulse_end = ticks_us()
-        
-        pulse = ticks_diff(pulse_end, pulse_begin)
-        # print("Pulse difference: {}".format(str(pulse)))
-                
-        return pulse
+                        
+        return time_pulse_us(self._pin, 1)
     
 def demo():
-    sensor = GroveUltrasonicRanger(pin8)
+    sensor = GroveUltrasonicRanger(pin1)
     
     while True:
         range_in_inches = sensor.measure_in_inches()
@@ -89,3 +69,4 @@ def demo():
 
 if __name__ == '__main__':
     demo()
+
