@@ -18,7 +18,7 @@
 from microbit import pin16, sleep, display, button_a, button_b
 from utime import sleep_ms
 
-class GroveVariableColorLED:
+class VariableColorLed:
     def __init__(self, pin):
         self._pin = pin
         self.off()
@@ -39,12 +39,15 @@ class GroveVariableColorLED:
             
         self._pin.write_analog(value)
 
-def demo():
-    led = GroveVariableColorLED(pin16)
+def main():
+    led = VariableColorLed(pin16)
+    
+    display.clear()
     display.show('<')
     
     while True:
         if button_b.is_pressed():
+            display.clear()
             break
         
         if button_a.is_pressed():
@@ -57,5 +60,5 @@ def demo():
             
         sleep(1000)
         
-if __name__ == "__main__":
-    demo()
+if __name__ == "__main__": 
+    main()
