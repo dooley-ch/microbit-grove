@@ -14,7 +14,7 @@ _EVENT_MODE      = 0x02
 _BLOCK_MODE      = 0x03
 _SWITCH_ON       = 0x00
 
-class GroveSixPositionDipSwitch:
+class SixPositionDipSwitch:
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
         self._data = None
@@ -86,8 +86,8 @@ def print_status(switches):
     else:
         print("Button 6: OFF")
         
-def demo():
-    switches = GroveSixPositionDipSwitch()
+def main():
+    switches = SixPositionDipSwitch()
     
     while True:
         if switches.read_device():
@@ -96,4 +96,4 @@ def demo():
         sleep(2)
     
 if __name__ == '__main__':
-    demo()
+    main()
