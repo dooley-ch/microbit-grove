@@ -8,7 +8,7 @@
 
 from microbit import pin15, pin16, sleep, button_b, display
 
-class GroveEncoder:
+class Encoder:
     def __init__(self, pin_a, pin_b):
         self._pin_a = pin_a
         self._pin_b = pin_b
@@ -37,8 +37,8 @@ class GroveEncoder:
         self._read()
         return self._direction
 
-def demo():
-    encoder = GroveEncoder(pin15, pin16)
+def main():
+    encoder = Encoder(pin15, pin16)
 
     display.clear()
     display.show('>')
@@ -55,7 +55,7 @@ def demo():
                 
             encoder.set_rotate_flag(0)
             
-        sleep(1000)
+        sleep(500)
         
 if __name__ == '__main__':
-    demo()
+    main()
