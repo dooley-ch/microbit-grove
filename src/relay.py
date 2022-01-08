@@ -6,12 +6,15 @@
 #
 # ------------------------------------------------------------------------------------------
 
+# Note: When the relay is active the red light will be on, so no need to hook up a device to
+# test it.
+
 from microbit import sleep, pin16, button_b, display
 
 _HIGH = 1
 _LOW = 0
 
-class GroveRelay:
+class Relay:
     def __init__(self, pin):
         self._pin = pin
         self.off()
@@ -22,22 +25,23 @@ class GroveRelay:
     def on(self):
         self._pin.write_digital(_HIGH)
 
-def demo():
-    relay = GroveRelay(pin16)
+def main():
+    component = Relay(pin16)
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         print('Relay On')
-        relay.on()
-        sleep(6000)
+        component.on()
+        sleep(2000)
         
         print('Relay Off')
-        relay.off()
-        sleep(6000)
+        component.off()
+        sleep(2000)
         
 if __name__ == '__main__':
-    demo()
+    main()
 
