@@ -6,24 +6,22 @@
 #
 # ------------------------------------------------------------------------------------------
 
+from microbit import pin16, sleep, button_b, display, Image
+from utime import ticks_ms, ticks_diff
+
 _LOW            = 0
 _HIGH           = 1
 _DEBOUNCE_DELAY = 50
 
-from microbit import pin16, sleep, button_b, display, Image
-from utime import ticks_ms, ticks_diff
-
-class GroveTiltSwitch:
+class TiltSwitch:
     def __init__(self, pin):
         self._pin = pin
         self._state = None
         self._last_state = None
         self._last_debounce_time = None
         
-    def is_vibrating(self):
+    def is_on(self):
         reading = self._pin.read_digital()
-        
-        print("Reading: {}".format(str(reading)))
         
         if reading != self._last_state:
             self._last_debounce_time = ticks_ms()
@@ -34,24 +32,25 @@ class GroveTiltSwitch:
     
         self._last_state = reading
         
-        return self._state
+        return self._state == _LOW
 
-def demo():
-    sensor = GroveVibrationSensorSW420(pin16)
+def main():
+    switch = TiltSwitch(pin16)
 
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
-        if sensor.is_vibrating():
-            print('Vibrating')
+        if switch.is_on():
+            print('Is On')
         else:
-            print('Calm')
+            print('Is Off')
              
-        sleep(1000)
+        sleep(100)
         
 if __name__ == '__main__':
-    demo()
+    main()
