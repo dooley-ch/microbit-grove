@@ -59,5 +59,6 @@ The library covers the following Grove components
 | Light Sensor                                               |                                                       | [Go Here](https://www.seeedstudio.com/Grove-Light-Sensor-p-746.html)                                                |          |
 | Dry-Reed Relay                                             |                                                       | [Go Here](https://www.seeedstudio.com/Grove-Dry-Reed-Relay.html)                                                    |          |
 | Touch Sensor                                               | ![Touch Sensor](img/touch.png)                        | [Go Here](https://www.seeedstudio.com/Grove-Touch-Sensor.html)                                                      | [Go Here](src/touch.py)                 |
+| Multi Color Flash LED                                      | ![Touch Sensor](img/multi-color-flash-led.png)        | [Go Here](https://www.seeedstudio.com/Grove-Multi-Color-Flash-LED-5mm.html)                                         | [Go Here](src/led.py)                   |
 
 
