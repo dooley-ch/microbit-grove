@@ -10,25 +10,32 @@
 
 from microbit import pin0, sleep, button_b, display
 
-class GroveRotaryAngleSensor:
+class RotaryAngleSensor:
+    _MAX_READING = 904
+    
     def __init__(self, pin):
         self._pin = pin
         
     def value(self):
         return self._pin.read_analog()
 
-def demo():
-    meter = GroveRotaryAngleSensor(pin0)
+    def percent(self):
+        reading = self._pin.read_analog()
+        return round(100 * (reading / RotaryAngleSensor._MAX_READING))
+
+def main():
+    sensor = RotaryAngleSensor(pin0)
     
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
-        print("Reading: {}".format(str(meter.value())))
-        sleep(2000)
+        print("Reading: {} => {}%".format(sensor.value(), sensor.percent()))
+        sleep(1000)
         
 if __name__ == '__main__':
-    demo()
+    main()
