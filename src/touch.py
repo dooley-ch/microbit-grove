@@ -13,7 +13,7 @@ _DEBOUNCE_DELAY = 50
 from microbit import pin16, sleep, button_b, display
 from utime import ticks_ms, ticks_diff
 
-class GroveTouchSensor:
+class TouchSensor:
     def __init__(self, pin):
         self._pin = pin
         self._state = None
@@ -34,14 +34,15 @@ class GroveTouchSensor:
         
         return (self._state == _HIGH)
 
-def demo():
-    sensor = GroveTouchSensor(pin16)
+def main():
+    sensor = TouchSensor(pin16)
 
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         if sensor.is_pressed():
@@ -49,8 +50,8 @@ def demo():
         else:
             print('Not Pressed')
         
-        sleep(500)
+        sleep(100)
         
         
 if __name__ == '__main__':
-    demo()
+    main()
