@@ -6,7 +6,7 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin16, sleep
+from microbit import pin16, sleep, button_b, display
 from utime import ticks_ms, ticks_diff
 
 from utime import sleep_us
@@ -15,7 +15,7 @@ _DEBOUNCE_DELAY = 50
 _HIGH           = 1
 _LOW            = 0
 
-class GroveButton:
+class Button:
     def __init__(self, pin):
         self._pin = pin
         self._button_state = None
@@ -36,15 +36,22 @@ class GroveButton:
         
         return (self._button_state == _HIGH)
     
-def demo():
-    button = GroveButton(pin16)
+def main():
+    button = Button(pin16)
+    
+    display.clear()
+    display.show('>')
     
     while True:
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
         if button.is_pressed():
-            print('Button On')
+            print('Button Pressed')
         else:
-            print('Button Off')
-        sleep(1000)
+            print('Button Not Pressed')
+        sleep(500)
 
 if __name__ == '__main__':
-    demo()
+    main()

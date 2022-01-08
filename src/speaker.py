@@ -6,6 +6,8 @@
 #
 # ------------------------------------------------------------------------------------------
 
+# Connect Grove cable to pin 0
+
 from microbit import speaker, set_volume, sleep
 import music
 
@@ -74,6 +76,3 @@ for i in range(4):
     sleep(2000)
 
 speaker.on()
-
-print("")
-print("Demo done")
