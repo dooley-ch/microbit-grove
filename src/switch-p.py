@@ -6,31 +6,36 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin16, sleep
-from utime import ticks_ms, ticks_diff
-
-from utime import sleep_us
+from microbit import pin16, sleep, display, button_b
 
 _HIGH           = 1
 _LOW            = 0
 
-class GroveSwitch:
+class SwitchP:
     def __init__(self, pin):
         self._pin = pin
         
-    def is_on(self):
+    def is_high(self):
         reading = self._pin.read_digital()        
         return (reading == _HIGH)
     
-def demo():
-    button = GroveSwitch(pin16)
+def main():
+    button = SwitchP(pin16)
+    
+    display.clear()
+    display.show('>')
     
     while True:
-        if button.is_on():
-            print('Switch On')
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
+        if button.is_high():
+            print('Switch Is High')
         else:
-            print('Switch Off')
+            print('Switch Is Low')
+            
         sleep(1000)
 
 if __name__ == '__main__':
-    demo()
+    main()
