@@ -6,12 +6,14 @@
 #
 # ------------------------------------------------------------------------------------------
 
+# Note: The relay lights up when turned on, so easy to check if working
+
 from microbit import sleep, pin16, button_b, display
 
 _HIGH = 1
 _LOW = 0
 
-class GroveOptocouplerRelay:
+class OptocouplerRelay:
     def __init__(self, pin):
         self._pin = pin
         self.off()
@@ -23,11 +25,12 @@ class GroveOptocouplerRelay:
         self._pin.write_digital(_HIGH)
 
 def demo():
-    relay = GroveOptocouplerRelay(pin16)
+    relay = OptocouplerRelay(pin16)
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         print('Relay On')
