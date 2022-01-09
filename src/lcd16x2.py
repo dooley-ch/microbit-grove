@@ -6,7 +6,10 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import i2c, sleep
+# Note: While the LCD does work, it does not perform very well without an external power
+# source
+
+from microbit import i2c, sleep, display, button_b
 from utime import sleep_us
 
 _DEFAULT_ADDRESS    = 0x3E
@@ -22,12 +25,7 @@ _LCD_SETCGRAMADDR   = 0x40
 _LCD_SETDDRAMADDR   = 0x80
 
 # Function set flags
-# _LCD_8BITMODE       = 0x10
-# _LCD_4BITMODE       = 0x00
 _LCD_2LINE           = 0x08
-# _LCD_1LINE          = 0x00
-# _LCD_5x10DOTS       = 0x04
-# _LCD_5x8DOTS        = 0x00
 
 # flags for display on/off control
 _LCD_DISPLAYON       = 0x04
@@ -39,7 +37,6 @@ _LCD_BLINKOFF        = 0x00
 
 # flags for display/cursor shift
 _LCD_DISPLAYMOVE = 0x08
-# _LCD_CURSORMOVE = 0x00
 _LCD_MOVERIGHT = 0x04
 _LCD_MOVELEFT = 0x00
 
@@ -49,7 +46,7 @@ _LCD_ENTRYLEFT       = 0x02
 _LCD_ENTRYSHIFTINCREMENT = 0x01
 _LCD_ENTRYSHIFTDECREMENT  = 0x00
 
-class GroveLCD16x2():
+class Lcd16x2():
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
         
@@ -149,11 +146,17 @@ class GroveLCD16x2():
         self._display_mode &= ~_LCD_ENTRYLEFT;
         self.command(_LCD_ENTRYMODESET | self._display_mode);
 
-def demo():
-    board = GroveLCD16x2()
+def main():
+    board = Lcd16x2()
 
+    display.clear()
+    display.show('>')
+    
     while True:
-        # Print Hello, world and countdown
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
         board.clear()
         board.write('Hello World')
         
@@ -166,5 +169,5 @@ def demo():
         sleep(1000)
             
 if __name__ == '__main__':
-    demo()
+    main()
     
