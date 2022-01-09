@@ -75,7 +75,7 @@ _K8C = 0x029a   # 1.3 * 2^RATIO_SCALE
 _B8C = 0x0000   # 0.000 * 2^LUX_SCALE
 _M8C = 0x0000   # 0.000 * 2^LUX_SCALE
 
-class GroveDigitalLightSensor:
+class DigitalLightSensor:
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
         
@@ -258,18 +258,13 @@ class GroveDigitalLightSensor:
     
         return self._ch0
 
-def demo():
+def main():
     i2c.init()
     
-    sensor = GroveDigitalLightSensor()
+    sensor = DigitalLightSensor()
     print("Visible Lux: {}".format(str(sensor.get_visible_lux())))
     print("IR Luminosity: {}".format(str(sensor.get_ir_luminosity())))
     print("Full Spectrum Luminosity: {}".format(str(sensor.get_full_spectrum_luminosity())))
-    
-#     print('')
-#     sensor.dump_variables()
-    
+        
 if __name__ == '__main__':
-    demo()
-
-
+    main()

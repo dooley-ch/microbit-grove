@@ -39,7 +39,7 @@ The library covers the following Grove components
 | Speaker Plus                                               |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Speaker-Plus-p-4592.html)                                               |          |
 | Speaker                                                    | ![Speaker](img/speaker.png)                                       | [Go Here](https://www.seeedstudio.com/Grove-Speaker-p-1445.html)                                                    | [Go Here](src/speaker.py)                     |
 | Flame Sensor                                               |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Flame-Sensor.html)                                                      |          |
-| 4-Digit Display                                            |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-4-Digit-Display.html)                                                   |          |
+| 4-Digit Display                                            | ![4-Digit Display](img/4-digit-display.png)                       | [Go Here](https://www.seeedstudio.com/Grove-4-Digit-Display.html)                                                   | [Go Here](src/4-digit-display.py)             |
 | MOSFET                                                     |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-MOSFET.html)                                                            |          |
 | Infrared Reflective Sensor v1.2                            |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Infrared-Reflective-Sensor-v1-2.html)                                   |          |
 | Light Sensor (P) v1.1                                      |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Light-Sensor-P-v1-1.html)                                               |          |
@@ -61,7 +61,7 @@ The library covers the following Grove components
 | LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                           | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)                     | 
 | Sound Sensor Based on LM358 amplifier                      | ![Sound Sendor](img/sound.png)                                    | [Go Here](https://www.seeedstudio.com/Grove-Sound-Sensor-Based-on-LM358-amplifier-Arduino-Compatible.html)          | [Go Here](src/sound-sensor.py)                |
 | Infrared Reflective Sensor                                 | ![Infrared Reflective](img/infrared-reflective-sensor.png)        | [Go Here](https://wiki.seeedstudio.com/Grove-Infrared_Reflective_Sensor/)                                           | [Go Here](src/InfraredReflectiveSensor)       |
- 
+
 ## Sundry Folder
 
 ## Work In Progress (wip) Folder

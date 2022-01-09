@@ -36,7 +36,7 @@ _DASH_CHAR       = 0x08
 _NUMBER_MAP      = bytearray(b'\x3F\x06\x5B\x4F\x66\x6D\x7D\x07\x7F\x6F')
 _CHARS_MAP       = bytearray(b'\x77\x7C\x39\x5E\x79\x71\x3D\x76\x06\x1E\x76\x38\x55\x54\x3F\x73\x67\x50\x6D\x78\x3E\x1C\x2A\x76\x6E\x5B\x00\x40\x63')
 
-class Grove4DigitDisplay(object):
+class FourDigitDisplay(object):
     def __init__(self, data_pin, clock_pin, brightness = _BRIGHT_TYPICAL):
         self._clock_pin = clock_pin
         self._data_pin = data_pin
@@ -120,7 +120,7 @@ class Grove4DigitDisplay(object):
         
         # ASCII characters
         if char >= 65 and char <= 90:
-            return _CHARS_MAP[o - 65]
+            return _CHARS_MAP[char - 65]
         if char >= 97 and char <= 122:
             return _CHARS_MAP[char - 97] # lowercase a-z
         
@@ -205,89 +205,93 @@ class Grove4DigitDisplay(object):
         self.set_point_flag(False)
         self._update_display(segments)
         
-def demo():
-    display = Grove4DigitDisplay(pin15, pin16)
+def main():
+    display_panel = FourDigitDisplay(pin15, pin16)
 
+    display.clear()
+    display.show('>')
+    
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         # Clear screen
-        display.display_clear()
+        display_panel.display_clear()
         sleep(1000)
         
         # Show 88:88
-        display.set_point_flag(True)
-        display.display_string('8888')
+        display_panel.set_point_flag(True)
+        display_panel.display_string('8888')
         sleep(2000)
               
         # Show 8888
-        display.set_point_flag(False)
-        display.display_string('8888')
+        display_panel.set_point_flag(False)
+        display_panel.display_string('8888')
         sleep(2000)
         
         # Show 145 with leading space
-        display.display_number(145, 0)
+        display_panel.display_number(145, 0)
         sleep(2000)
         
         # Show 145 with leading space
-        display.display_number(145, 0, False, True)
+        display_panel.display_number(145, 0, False, True)
         sleep(2000)
         
         # Display 1.45
-        display.set_point_flag(True)
-        display.display_number(1.45, 2)
+        display_panel.set_point_flag(True)
+        display_panel.display_number(1.45, 2)
         sleep(2000)
 
         # Show -145 with leading space
-        display.set_point_flag(False)
-        display.display_number(145, 0, True)
+        display_panel.set_point_flag(False)
+        display_panel.display_number(145, 0, True)
         sleep(2000)
 
         # Display time 09:01
-        display.display_time(9, 1)
+        display_panel.display_time(9, 1)
         sleep(2000)
         
         # Display Temperature
-        display.display_temperature(23)
+        display_panel.display_temperature(23)
         sleep(2000)
         
         # Check numbers
         print()
-        display.display_scrolling_string('0123456789')
+        display_panel.display_scrolling_string('0123456789')
         sleep(2000)
         
         # Check upper case letters
         print()
-        display.display_scrolling_string('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1000)
+        display_panel.display_scrolling_string('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1000)
         sleep(2000)
 
         # Check lower case letters
         print()
-        display.display_scrolling_string('abcdefghijklmnopqrstuvwxyz', 1000)
+        display_panel.display_scrolling_string('abcdefghijklmnopqrstuvwxyz', 1000)
         sleep(2000)
         
         # Brightness
-        display.set_point_flag(True)
-        display.display_string('9999')
+        display_panel.set_point_flag(True)
+        display_panel.display_string('9999')
         sleep(2000)
         
-        display.set_brightness(_BRIGHT_DARKEST)
-        display.set_point_flag(True)
-        display.display_string('9999')
+        display_panel.set_brightness(_BRIGHT_DARKEST)
+        display_panel.set_point_flag(True)
+        display_panel.display_string('9999')
         sleep(2000)
         
-        display.set_brightness(_BRIGHT_TYPICAL)
-        display.set_point_flag(True)
-        display.display_string('9999')
+        display_panel.set_brightness(_BRIGHT_TYPICAL)
+        display_panel.set_point_flag(True)
+        display_panel.display_string('9999')
         sleep(2000)
         
-        display.set_brightness(_BRIGHTEST)
-        display.set_point_flag(True)
-        display.display_string('9999')
+        display_panel.set_brightness(_BRIGHTEST)
+        display_panel.set_point_flag(True)
+        display_panel.display_string('9999')
         sleep(2000)        
      
-        display.set_brightness(_BRIGHT_TYPICAL)
+        display_panel.set_brightness(_BRIGHT_TYPICAL)
      
 if __name__ == '__main__':
-    demo()
+    main()
