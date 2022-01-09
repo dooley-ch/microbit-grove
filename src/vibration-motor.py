@@ -6,41 +6,35 @@
 #
 # ------------------------------------------------------------------------------------------
 
-# Note although rated for 5v, it seems to work OK with power from the board
+_HIGH = 1
+_LOW  = 0
 
-from microbit import pin16, sleep, display, button_b
-from utime import ticks_ms, ticks_diff
+from microbit import pin16, sleep, button_b, display
 
-from utime import sleep_us
-
-_HIGH           = 1
-_LOW            = 0
-
-class MagneticSwitch:
+class VibrationMotor:
     def __init__(self, pin):
         self._pin = pin
         
-    def is_on(self):
-        reading = self._pin.read_digital()        
-        return (reading == _HIGH)
-    
+    def on(self):
+        self._pin.write_digital(_HIGH)
+
+    def off(self):
+        self._pin.write_digital(_LOW)
+        
 def main():
-    button = MagneticSwitch(pin16)
-    
+    motor = VibrationMotor(pin16)
+
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
-            display.clear()
             break
         
-        if button.is_on():
-            print('Switch On') 
-        else:
-            print('Switch Off')
-            
-        sleep(100)
-
+        motor.on()
+        sleep(2000)
+        motor.off()
+        sleep(2000)
+        
 if __name__ == '__main__':
     main()
