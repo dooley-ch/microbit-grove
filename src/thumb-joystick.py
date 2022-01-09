@@ -10,7 +10,7 @@
 
 from microbit import sleep, pin1, pin2, display, button_b
 
-class GroveThumbJoystick:
+class ThumbJoystick:
     def __init__(self, pin_x, pin_y):
         self._pin_x = pin_x
         self._pin_y = pin_y
@@ -22,7 +22,7 @@ class GroveThumbJoystick:
         return data_x, data_y
     
 def demo():
-    js = GroveThumbJoystick(pin1, pin2)
+    js = ThumbJoystick(pin1, pin2)
     
     display.clear()
     display.show('>')

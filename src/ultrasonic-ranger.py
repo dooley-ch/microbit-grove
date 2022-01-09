@@ -6,7 +6,7 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin8, sleep
+from microbit import pin8, sleep, button_b, display
 from utime import sleep_us, ticks_us, ticks_diff
 
 _HIGH     = 1
@@ -14,7 +14,7 @@ _LOW      = 0
 
 _TIME_OUT = 1000000
 
-class GroveUltrasonicRanger:
+class UltrasonicRanger:
     def __init__(self, pin):
         self._pin = pin
         
@@ -71,10 +71,17 @@ class GroveUltrasonicRanger:
                 
         return pulse
     
-def demo():
-    sensor = GroveUltrasonicRanger(pin8)
+def main():
+    sensor = UltrasonicRanger(pin8)
+    
+    display.clear()
+    display.show('>')
     
     while True:
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
         range_in_inches = sensor.measure_in_inches()
         range_in_cm = sensor.measure_in_centimeters()
         
@@ -86,4 +93,4 @@ def demo():
         print('')
 
 if __name__ == '__main__':
-    demo()
+    main()
