@@ -60,7 +60,7 @@ The library covers the following Grove components
 | Multi Color Flash LED                                      | ![Multi Color Flash LED](img/multi-color-flash-led.png)   | [Go Here](https://www.seeedstudio.com/Grove-Multi-Color-Flash-LED-5mm.html)                                         | [Go Here](src/led.py)                   |
 | 6 Poisition Dip Switch                                     | ![6 Position Dip Switch](img/6-position-dip-switch.png)   | [Go Here](https://www.seeedstudio.com/Grove-6-Position-DIP-Switch.html)                                             | [Go Here](src/6-position-dip-switch.py) |
 | Gesture                                                    | ![Gesture](img/gesture.png)                               | [Go Here](https://wiki.seeedstudio.com/Grove-Gesture_v1.0/)                                                         | [Go Here](src/gesture.py)               | | LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                   | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)               | 
-
+ 
 ## Sundry Folder
 
 ## Work In Progress (wip) Folder
