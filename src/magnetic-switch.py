@@ -8,7 +8,7 @@
 
 # Note although rated for 5v, it seems to work OK with power from the board
 
-from microbit import pin16, sleep
+from microbit import pin16, sleep, display, button_b
 from utime import ticks_ms, ticks_diff
 
 from utime import sleep_us
@@ -16,7 +16,7 @@ from utime import sleep_us
 _HIGH           = 1
 _LOW            = 0
 
-class GroveMagneticSwitch:
+class MagneticSwitch:
     def __init__(self, pin):
         self._pin = pin
         
@@ -24,15 +24,21 @@ class GroveMagneticSwitch:
         reading = self._pin.read_digital()        
         return (reading == _HIGH)
     
-def demo():
-    button = GroveMagneticSwitch(pin16)
+def main():
+    button = MagneticSwitch(pin16)
+    
+    display.clear()
+    display.show('>')
     
     while True:
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
         if button.is_on():
             print('Switch On')
-        else:
-            print('Switch Off')
-        sleep(1000)
+            
+        sleep(100)
 
 if __name__ == '__main__':
-    demo()
+    main()
