@@ -12,7 +12,7 @@ from math import log
 _B  = 4275   # B value of the thermistor
 _R0 = 100000 # R0 = 100k
 
-class GroveTemperatureSensor:
+class TemperatureSensor:
     def __init__(self, pin):
         self._pin = pin
 
@@ -29,20 +29,21 @@ class GroveTemperatureSensor:
 
         return round(value)
 
-def demo():
-    sensor = GroveTemperatureSensor(pin0)
+def main():
+    sensor = TemperatureSensor(pin0)
 
     display.clear()
     display.show('>')
 
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
 
-        print("Current Temperature: {0}C, {1}F".format(str(sensor.get_temperature()), str(sensor.get_temperature(True))))
+        print("Current Temperature: {0}C, {1}F".format(sensor.get_temperature(), sensor.get_temperature(True)))
         print()
 
         sleep(2000)
 
 if __name__ == '__main__':
-    demo()
+    main()
