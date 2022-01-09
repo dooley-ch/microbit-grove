@@ -62,11 +62,6 @@ The library covers the following Grove components
 | Gesture                                                    | ![Gesture](img/gesture.png)                               | [Go Here](https://wiki.seeedstudio.com/Grove-Gesture_v1.0/)                                                         | [Go Here](src/gesture.py)               | 
 | LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                   | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)               | 
 
-
-
-| Component                                                  |                                                           | SeeedStudio                                                                                                         | Example  |
-| ---------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
-| LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                   | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)               | 
  
 ## Sundry Folder
 
