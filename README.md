@@ -22,7 +22,6 @@ The library covers the following Grove components
 | Magnetic Switch                                            | ![Magnetic Switch](img/magnetic-switch.png)                       | [Go Here](https://www.seeedstudio.com/Grove-Magnetic-Switch.html)                                                   | [Go Here](src/magnetic-switch.py)             |
 | Tilt Switch                                                | ![Tilt Switch](img/tilt-switch.png)                               | [Go Here](https://www.seeedstudio.com/Grove-Tilt-Switch.html)                                                       | [Go Here](src/tilt-switch.py)                 |
 | Relay                                                      | ![Relay](img/relay.png)                                           | [Go Here](https://www.seeedstudio.com/Grove-Relay.html)                                                             | [Go Here](src/relay.py)                       |
-| Water Sensor                                               |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Water-Sensor.html)                                                      |          | 
 | Temperature Sensor                                         | ![Temp Sensor](img/temp-sensor.png)                               | [Go Here](https://www.seeedstudio.com/Grove-Temperature-Sensor.html)                                                | [Go Here](src/temp-sensor.py)                 |
 | Temperature & Humidity Sensor (High-Accuracy & Mini)       |                                                                   | [Go Here](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-High-Accuracy-Mini.html)                    |          |
 | AHT20 I2C Industrial Grade Temperature and Humidity Sensor | ![AHT20](img/aht20.png)                                           | [Go Here](https://www.seeedstudio.com/Grove-AHT20-I2C-Industrial-grade-temperature-and-humidity-sensor-p-4497.html) | [Go Here](src/aht.py)                         |
@@ -61,7 +60,12 @@ The library covers the following Grove components
 | LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                           | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)                     | 
 | Sound Sensor Based on LM358 amplifier                      | ![Sound Sendor](img/sound.png)                                    | [Go Here](https://www.seeedstudio.com/Grove-Sound-Sensor-Based-on-LM358-amplifier-Arduino-Compatible.html)          | [Go Here](src/sound-sensor.py)                |
 | Infrared Reflective Sensor                                 | ![Infrared Reflective](img/infrared-reflective-sensor.png)        | [Go Here](https://wiki.seeedstudio.com/Grove-Infrared_Reflective_Sensor/)                                           | [Go Here](src/InfraredReflectiveSensor)       |
+| Digital Distance Interrupter                               | ![Digital Distance Interrupter](img/digital-distance-interrupter.png) | [Go Here](https://wiki.seeedstudio.com/Grove-Digital_Distance_Interrupter_0.5_to_5cm-GP2Y0D805Z0F_P/)           | [Go Here](src/digital-distance-interrupter.py)|
 
 ## Sundry Folder
 
+The sundry folder contins some useful python programs that may help developers in implementing Grove support for their projects
+
 ## Work In Progress (wip) Folder
+
+The WIP folder contains programs under development in support of various grove components.
