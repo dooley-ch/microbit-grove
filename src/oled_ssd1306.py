@@ -31,7 +31,7 @@ _INIT_COMMANDS = [
         [0xd6, 1],
         [0xaf]]
 
-class GroveOledSSD1306:
+class OledSSD1306:
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
         self._buffer = bytearray(513)
@@ -102,12 +102,14 @@ class GroveOledSSD1306:
             ind0 = x * 10 + y * 128 + 1 
             i2c.write(self._device_address, b'\x40' + self._buffer[ind0:ind + 1]) 
       
-def demo():   
+def main():   
     i2c.init()
-    display = GroveOledSSD1306()
+    display = OledSSD1306()
     
-    display.string(0, 2, "Hello, world")
+    display.string(4, 1, "Hello")
+    display.string(4, 2, "World")
     display.pulse()
 
 if __name__ == '__main__':
-    demo()
+    main()
+    
