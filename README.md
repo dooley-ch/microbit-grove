@@ -61,6 +61,7 @@ The library covers the following Grove components
 | 6 Poisition Dip Switch                                     | ![6 Position Dip Switch](img/6-position-dip-switch.png)   | [Go Here](https://www.seeedstudio.com/Grove-6-Position-DIP-Switch.html)                                             | [Go Here](src/6-position-dip-switch.py) |
 | Gesture                                                    | ![Gesture](img/gesture.png)                               | [Go Here](https://wiki.seeedstudio.com/Grove-Gesture_v1.0/)                                                         | [Go Here](src/gesture.py)               | 
 | LCD 16x2                                                   | ![LCD](img/lcd16x2.png)                                   | [Go Here](https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)                                                      | [Go Here](src/lcd16x2.py)               | 
+| Sound Sensor Based on LM358 amplifier                      | ![Sound Sendor](img/sound.png)                            | [Go Here](https://www.seeedstudio.com/Grove-Sound-Sensor-Based-on-LM358-amplifier-Arduino-Compatible.html)          | [Go Here](src/sound-sensor.py)          |
 
  
 ## Sundry Folder

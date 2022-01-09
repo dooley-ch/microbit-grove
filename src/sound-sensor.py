@@ -10,7 +10,7 @@
 
 from microbit import pin0, sleep, display, button_b
 
-class GroveSoundSensor:
+class SoundSensor:
     def __init__(self, pin):
         self._pin = pin
             
@@ -22,18 +22,19 @@ class GroveSoundSensor:
             
         return (value >> 5)
     
-def demo():
-    sensor = GroveSoundSensor(pin0)
+def main():
+    sensor = SoundSensor(pin0)
     
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break;
         
         print('Sound Reading:', sensor.reading())
         sleep(500)
 
 if __name__ == '__main__':
-    demo()
+    main()
