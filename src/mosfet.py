@@ -11,7 +11,7 @@
 
 from microbit import sleep, pin16, button_b, display
 
-class GroveMOSFET:
+class Mosfet:
     def __init__(self, pin):
         self._pin = pin
         self.current(0)
@@ -19,15 +19,16 @@ class GroveMOSFET:
     def current(self, value):
         self._pin.write_analog(value)
 
-def demo():
+def main():
     mosfet = GroveMOSFET(pin16)
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
-        print('On, the off with speed')
+        print('On, then off with speed')
         mosfet.current(1000)
         sleep(3000)
         mosfet.current(0)
@@ -48,5 +49,5 @@ def demo():
         sleep(3000)
         
 if __name__ == '__main__':
-    demo()
+    main()
 
