@@ -6,29 +6,32 @@
 #
 # ------------------------------------------------------------------------------------------
 
-# This sensor requires analog input, so use P0, P1, P2
+# https://www.seeedstudio.com/Grove-Light-Sensor-v1-2-LS06-S-phototransistor.html
 
-from microbit import pin0, sleep, display, button_b
+# This sensor needs an analog in pin: P0, P1, P2
 
-class GroveLoudnessSensor:
+from microbit import pin0, sleep, button_b, display
+
+class LightSensor:
     def __init__(self, pin):
         self._pin = pin
-            
-    def reading(self):
+
+    def value(self):
         return self._pin.read_analog()
-    
-def demo():
-    sensor = GroveLoudnessSensor(pin0)
+
+def main():
+    sensor = LightSensor(pin0)
     
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
-            break;
+            display.clear()
+            break
         
-        print('Sound Reading:', sensor.reading())
-        sleep(200)
+        print("Light reading {}".format(str(sensor.value())))
+        sleep(500) 
 
 if __name__ == '__main__':
-    demo()
+    main()

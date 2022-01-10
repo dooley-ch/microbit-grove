@@ -10,20 +10,15 @@
 
 from microbit import pin0, sleep, display, button_b
 
-class SoundSensor:
+class LoudnessSensor:
     def __init__(self, pin):
         self._pin = pin
             
     def reading(self):
-        value = 0
-        
-        for i in range(32):
-            value += self._pin.read_analog()
-            
-        return (value >> 5)
+        return self._pin.read_analog()
     
 def main():
-    sensor = SoundSensor(pin0)
+    sensor = GroveLoudnessSensor(pin0)
     
     display.clear()
     display.show('>')
@@ -34,7 +29,7 @@ def main():
             break;
         
         print('Sound Reading:', sensor.reading())
-        sleep(500)
+        sleep(200)
 
 if __name__ == '__main__':
     main()
