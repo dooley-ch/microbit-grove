@@ -8,7 +8,7 @@
 
 from microbit import pin16, sleep, display, button_b
 
-class MiniPIRSensorSensor:
+class MiniPIRMotionSensor:
     def __init__(self, pin):
         self._pin = pin
             
@@ -16,7 +16,7 @@ class MiniPIRSensorSensor:
         return self._pin.read_digital()
     
 def main():
-    sensor = MiniPIRSensorSensor(pin16)
+    sensor = MiniPIRMotionSensor(pin16)
     
     display.clear()
     display.show('>')
