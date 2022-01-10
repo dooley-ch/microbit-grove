@@ -141,7 +141,7 @@ _INIT_COMMANDS = [[0xAE],
                   [0xd6, 1],
                   [0xaf]]
 
-class GroveOledSSD1315:
+class OledSSD1315:
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
  
@@ -211,9 +211,9 @@ class GroveOledSSD1315:
     def number(self, x, y, value):
         self.string(x, y, str(value))
         
-def demo():
+def main():
     i2c.init()
-    display = GroveOledSSD1315()
+    display = OledSSD1315()
     
     display.set_inverse(False)
     display.clear()
@@ -244,4 +244,4 @@ def demo():
     display.off()
     
 if __name__ == '__main__':
-    demo()
+    main()

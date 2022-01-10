@@ -6,26 +6,15 @@
 #
 # ------------------------------------------------------------------------------------------
 
-from microbit import pin1, pin8, pin16, sleep, set_volume
+from microbit import pin1, sleep, display, button_b
 from utime import ticks_ms, sleep_ms, ticks_diff
-import music
 
 _FORCE_SIGNAL   = 0;
 _HIGH_POLLUTION = 1;
 _LOW_POLLUTION  = 2;
 _FRESH_AIR      = 3;
 
-class GroveLED:
-    def __init__(self, pin):
-        self._pin = pin
-        
-    def on(self):
-        self._pin.write_digital(1)
-    
-    def off(self):
-        self._pin.write_digital(0)
-
-class GroveAirQualitySensor:
+class AirQualitySensor:
     def __init__(self, pin):
         self._pin = pin
         self._last_voltage = 0
@@ -88,32 +77,31 @@ class GroveAirQualitySensor:
         else:
             return'Fresh Air'        
         
+def main():
+    sensor = AirQualitySensor(pin1)
     
-# For this demo, you need two LEDs one Red (P8) and one green (P16) as well as the air quality sensor (P1)
-def demo():
-    red_led = GroveLED(pin8)
-    green_led = GroveLED(pin16)
-    sensor = GroveAirQualitySensor(pin1)
-  
-    red_led.off()
-    green_led.off()
-            
+    display.clear()
+    display.show('>')
+              
     while True:
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
         slope = sensor.slope()
         
         if slope == _FRESH_AIR:
-            green_led.on()
+            print('Fresh Air')
         
         if slope == _HIGH_POLLUTION:
-            red_led.on()
-            set_volume(255)
-            music.play(music.FUNERAL)
+            print('Danger - High Pollution')
             
         if slope == _LOW_POLLUTION:
-            red_led.on()
+            print('Warning - Low Pollution')
         
-        print('Air Quality:', sensor.get_quality())
-        sleep(5000) 
+        print('Air Quality Reading: ', sensor.get_quality())
+        
+        sleep(1000) 
         
 if __name__ == '__main__':
     demo()
