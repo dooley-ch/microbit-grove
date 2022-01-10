@@ -10,8 +10,8 @@ This repository contains examplea Micropython programs demonstrating how to use 
 
 The library covers the following Grove components
 
-| Component                                                  |                                                                       | SeeedStudio                                                                                                         | Example  |
-| ---------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
+| Component                                                  |                                                                       | SeeedStudio                                                                                                         | Example                                       |
+| ---------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | OLED Display 0.66" (SSD1306)                               | ![OLED SSD1306](img/oled-ssd1306.png)                                 | [Go Here](https://www.seeedstudio.com/Grove-OLED-Display-0-66-SSD1306-v1-0-p-5096.html)                             | [Go Here](src/oled_ssd1306.py)                |
 | OLED Yellow&Blue Display 0.96 (SSD1315)                    |                                                                       | [Go Here](https://www.seeedstudio.com/Grove-OLED-Yellow-Blue-Display-0-96-SSD1315-V1-0-p-5010.html)                 |          | 
 | Ultrasonic Distance Sensor                                 | ![Ultrasoncic Distance Sensor](img/ultrasonic-distance-sensor.png)    | [Go Here](https://www.seeedstudio.com/Grove-Ultrasonic-Distance-Sensor.html)                                        | [Go Here](src/ultrasonic-ranger.py)           |
@@ -59,6 +59,8 @@ The library covers the following Grove components
 | Optocoupler Relay                                          | ![Potocoupler Relay](img/optocoupler-relay.png)                       | [Go Here](https://wiki.seeedstudio.com/Grove-Optocoupler_Relay-M281/)                                               | [Go Here](src/optocoupler-relay.py)           |
 | 3 Axis Accelerometer                                       | ![3 Axis Accelerometer](img/3-axis-accelerometer.png)                 | [Go Here](https://www.seeedstudio.com/Grove-3-Axis-Digital-Accelerometer-LIS3DHTR-p-4533.html)                      | [Go Here](src/3-axis-digital-accelerometer.py)|
 | WS2813 RGB LED Strip                                       | ![Neo Pixels](img/neo-pixels.png)                                     | [Go Here](https://www.seeedstudio.com/Grove-WS2813-RGB-LED-Strip-Waterproof-30-LED-m-1m.html)                       | [Go Here](src/neo-pixels.py)                  |
+| Purple LED                                                 | ![Purple LED](img/purple-led.png)                                     | [Go Here](https://www.seeedstudio.com/Grove-Purple-LED-3mm.html)                                                    | [Go Here](src/purple-led.py)                  |
+| Analog Microphone                                          | ![Analog Microphone](img/analog-microphone.png)                       | [Go Here](https://www.seeedstudio.com/Grove-Analog-Microphone-p-4593.html)                                          | [Go Here](src/analog-microphone.py)           |
 
 ## Sundry Folder
 

@@ -6,31 +6,33 @@
 #
 # ------------------------------------------------------------------------------------------
 
-# Note this component needs analog input, so P0, p1, p2
-
 from microbit import pin0, sleep, button_b, display
-from utime import sleep_ms
 
-class GroveAnalogMicrophone:
+class PurpleLed:
     def __init__(self, pin):
         self._pin = pin
-        sleep_ms(50)
         
-    def reading(self):
-        return self._pin.read_analog()
+    def on(self):
+        self._pin.write_digital(1)
+    
+    def off(self):
+        self._pin.write_digital(0)
 
-
-def demo():
-    sensor = GroveAnalogMicrophone(pin0)
+def main():
+    led = PurpleLed(pin0)
+    led.off()
 
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
-        print('Reading:', sensor.reading())
+        led.on()
+        sleep(1000)
+        led.off()
         sleep(1000)
         
 if __name__ == '__main__':
