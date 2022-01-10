@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository contains examplea Micropython programs demonstrating how to use various Grove components with the BBC Micro:bit microcontroller.
+This repository contains examples Micropython programs demonstrating how to use various Grove components with the BBC Micro:bit microcontroller.
 
 ## Grove Components
 
