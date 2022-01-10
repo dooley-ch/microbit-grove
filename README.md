@@ -58,7 +58,7 @@ The library covers the following Grove components
 | WS2813 RGB LED Strip                                       | ![Neo Pixels](img/neo-pixels.png)                                     | [Go Here](https://www.seeedstudio.com/Grove-WS2813-RGB-LED-Strip-Waterproof-30-LED-m-1m.html)                       | [Go Here](src/neo-pixels.py)                  |
 | Purple LED                                                 | ![Purple LED](img/purple-led.png)                                     | [Go Here](https://www.seeedstudio.com/Grove-Purple-LED-3mm.html)                                                    | [Go Here](src/purple-led.py)                  |
 | Analog Microphone                                          | ![Analog Microphone](img/analog-microphone.png)                       | [Go Here](https://www.seeedstudio.com/Grove-Analog-Microphone-p-4593.html)                                          | [Go Here](src/analog-microphone.py)           |
-| Air Quality Sensor |                                       | ![Air Quality Sensor](img/air-quality-sensor.png)                     | [Go Here](https://wiki.seeedstudio.com/Grove-Air_Quality_Sensor_v1.3/)                                              | [Go Here](src/air-quality-sensor.py)          |
+| Air Quality Sensor                                         | ![Air Quality Sensor](img/air-quality-sensor.png)                     | [Go Here](https://wiki.seeedstudio.com/Grove-Air_Quality_Sensor_v1.3/)                                              | [Go Here](src/air-quality-sensor.py)          |
 
 ## Sundry Folder
 
