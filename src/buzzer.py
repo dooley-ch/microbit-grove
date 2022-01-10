@@ -11,7 +11,7 @@ _LOW  = 0
 
 from microbit import pin16, sleep, button_b, display
 
-class PassivePuzzer:
+class Buzzer:
     def __init__(self, pin):
         self._pin = pin
         
@@ -22,13 +22,14 @@ class PassivePuzzer:
         self._pin.write_digital(_LOW)
         
 def main():
-    buzzer = PassivePuzzer(pin16)
+    buzzer = Buzzer(pin16)
 
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         buzzer.on()
