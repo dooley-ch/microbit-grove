@@ -14,7 +14,7 @@ from random import randint
 from math import sin, sqrt
 from utime import ticks_ms, ticks_diff
 
-class GroveNeoPixels:
+class NeoPixels:
     def __init__(self, pin, num_pixels = 30):
         self._num_pixels = num_pixels
         self._strip = NeoPixel(pin, num_pixels)
@@ -506,7 +506,7 @@ def main():
     display.clear()
     display.show('>')
     
-    strip = GroveNeoPixels(pin1)
+    strip = NeoPixels(pin1)
     
     while True:
         if button_b.was_pressed():
@@ -522,3 +522,4 @@ def main():
      
 if __name__ == '__main__':
     main()
+    

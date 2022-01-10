@@ -57,6 +57,7 @@ The library covers the following Grove components
 | Digital Distance Interrupter                               | ![Digital Distance Interrupter](img/digital-distance-interrupter.png) | [Go Here](https://wiki.seeedstudio.com/Grove-Digital_Distance_Interrupter_0.5_to_5cm-GP2Y0D805Z0F_P/)               | [Go Here](src/digital-distance-interrupter.py)|
 | Optocoupler Relay                                          | ![Potocoupler Relay](img/optocoupler-relay.png)                       | [Go Here](https://wiki.seeedstudio.com/Grove-Optocoupler_Relay-M281/)                                               | [Go Here](src/optocoupler-relay.py)           |
 | 3 Axis Accelerometer                                       | ![3 Axis Accelerometer](img/3-axis-accelerometer.png)                 | [Go Here](https://www.seeedstudio.com/Grove-3-Axis-Digital-Accelerometer-LIS3DHTR-p-4533.html)                      | [Go Here](src/3-axis-digital-accelerometer.py)|
+| WS2813 RGB LED Strip                                       | ![Neo Pixels](img/neo-pixels.png)                                     | [Go Here](https://www.seeedstudio.com/Grove-WS2813-RGB-LED-Strip-Waterproof-30-LED-m-1m.html)                       | [Go Here](src/neo-pixels.py)                  |
 
 ## Sundry Folder
 
