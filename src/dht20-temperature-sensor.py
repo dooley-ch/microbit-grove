@@ -7,7 +7,7 @@
 # ------------------------------------------------------------------------------------------
 
 from micropython import const
-from microbit import i2c, sleep
+from microbit import i2c, sleep, button_b, display
 from utime import sleep_ms
 
 _DEFAULT_ADDRESS         = const(0x38)
@@ -18,7 +18,7 @@ _AHTX0_CMD_SOFTRESET     = const(0xBA)
 _AHTX0_STATUS_BUSY       = const(0x80)
 _AHTX0_STATUS_CALIBRATED = const(0x08)
 
-class GroveDHT20Sensor:
+class Dht20Sensor:
     def __init__(self):
         self._device_address = _DEFAULT_ADDRESS
         self._buffer = bytearray(6)
@@ -80,14 +80,23 @@ class GroveDHT20Sensor:
         
         return round(humidity, 1)
     
-def demo():
-    sensor = GroveDHT20Sensor()
+def main():
+    sensor = Dht20Sensor()
     
-    temp = sensor.temperature()
-    temp_fahrenheit = sensor.temperature(True)
-    humi = sensor.relative_humidity()
+    display.clear()
+    display.show('>')
+    
+    while True:
+        if button_b.was_pressed():
+            display.clear()
+            break
+        
+        temp = sensor.temperature()
+        temp_fahrenheit = sensor.temperature(True)
+        humi = sensor.relative_humidity()
 
-    print("Temperature: {}C ({}F) Relative Humidity: {}%".format(str(temp), str(temp_fahrenheit), str(humi)))
+        print("Temperature: {}C ({}F) Relative Humidity: {}%".format(str(temp), str(temp_fahrenheit), str(humi)))
+        sleep(1000)
     
 if __name__ == '__main__':
-    demo()
+    main()
