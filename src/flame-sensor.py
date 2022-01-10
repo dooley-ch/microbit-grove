@@ -6,25 +6,24 @@
 #
 # ------------------------------------------------------------------------------------------
 
-# yellow, is tx and 16
-
 from microbit import pin16, sleep, display, button_b
 
-class GroveFlameSensor:
+class FlameSensor:
     def __init__(self, pin):
         self._pin = pin
         
     def has_flame(self):
         return not self._pin.read_digital()
     
-def demo():
-    sensor =  GroveFlameSensor(pin16)
+def main():
+    sensor =  FlameSensor(pin16)
     
     display.clear()
     display.show('>')
     
     while True:
         if button_b.was_pressed():
+            display.clear()
             break
         
         if sensor.has_flame():
@@ -35,4 +34,4 @@ def demo():
         sleep(500)
 
 if __name__ == '__main__':
-    demo()
+    main()
