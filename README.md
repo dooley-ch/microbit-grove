@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository contains examples Micropython programs demonstrating how to use various Grove components with the BBC Micro:bit microcontroller.
+This repository contains examples Micropython programs demonstrating how to use various Grove components as sold by [Seeedstudio](https://www.seeedstudio.com/category/Grove-c-1003.html) with the [BBC Micro:bit](https://microbit.org) microcontroller.
 
 ## Grove Components
 
@@ -61,6 +61,6 @@ The library covers the following Grove components
 
 The sundry folder contins some useful python programs that may help developers in implementing Grove support for their projects
 
-## Work In Progress (wip) Folder
+## Work In Progress Folder (wip)
 
 The WIP folder contains programs under development in support of various grove components.
